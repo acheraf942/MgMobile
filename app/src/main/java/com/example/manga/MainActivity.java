@@ -6,6 +6,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
+import com.example.Manga.BaseDHelper;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText titreInput, auteurInput, genreInput, chapitresInput;
     private Button ajouterMangaButton;
 
-    @Override
+    @Override  // Ajoute l'annotation @Override ici pour signaler que tu réécris une méthode de la superclasse
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);  // Lier le fichier XML à cette activité
@@ -31,13 +32,21 @@ public class MainActivity extends AppCompatActivity {
 
         // Ajouter une action lorsque l'utilisateur clique sur le bouton "Ajouter Manga"
         ajouterMangaButton.setOnClickListener(new View.OnClickListener() {
-            @Override
+            @Override  // L'annotation @Override est nécessaire ici aussi
             public void onClick(View v) {
                 // Récupérer les données saisies par l'utilisateur
                 String titre = titreInput.getText().toString();
                 String auteur = auteurInput.getText().toString();
                 String genre = genreInput.getText().toString();
-                int chapitres = Integer.parseInt(chapitresInput.getText().toString());
+                int chapitres;
+
+                // Validation : Si chapitres n'est pas un entier valide, on l'affiche en Toast
+                try {
+                    chapitres = Integer.parseInt(chapitresInput.getText().toString());
+                } catch (NumberFormatException e) {
+                    Toast.makeText(MainActivity.this, "Veuillez entrer un nombre valide pour les chapitres", Toast.LENGTH_SHORT).show();
+                    return;  // Sortir de la méthode en cas d'erreur de saisie
+                }
 
                 // Ajouter le manga à la base de données
                 boolean isInserted = baseDHelper.ajouterManga(titre, auteur, genre, chapitres);
