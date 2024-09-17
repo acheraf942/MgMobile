@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!-- Champ pour entrer le titre du manga -->
+    <EditText
+        android:id="@+id/titreInput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Titre du manga"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        android:layout_marginTop="16dp"
+        android:padding="16dp" />
+
+    <!-- Champ pour entrer l'auteur du manga -->
+    <EditText
+        android:id="@+id/auteurInput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Auteur"
+        app:layout_constraintTop_toBottomOf="@id/titreInput"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="8dp"
+        android:padding="16dp" />
+
+    <!-- Champ pour entrer le genre du manga -->
+    <EditText
+        android:id="@+id/genreInput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Genre"
+        app:layout_constraintTop_toBottomOf="@id/auteurInput"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="8dp"
+        android:padding="16dp" />
+
+    <!-- Champ pour entrer le nombre de chapitres du manga -->
+    <EditText
+        android:id="@+id/chapitresInput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Nombre de chapitres"
+        android:inputType="number"
+        app:layout_constraintTop_toBottomOf="@id/genreInput"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="8dp"
+        android:padding="16dp" />
+
+    <!-- Bouton pour ajouter un manga -->
+    <Button
+        android:id="@+id/ajouterMangaButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ajouter Manga"
+        app:layout_constraintTop_toBottomOf="@id/chapitresInput"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="16dp"
+        android:padding="16dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
