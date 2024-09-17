@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">My Application</string>
+    <string name="inscription">Inscription</string>
+    <string name="mail">mail</string>
+    <string name="pseudo">pseudo</string>
+    <string name="pass">pass</string>
+    <string name="passcheck">passcheck</string>
 </resources>
